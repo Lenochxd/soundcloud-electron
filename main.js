@@ -16,7 +16,9 @@ async function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
             contextIsolation: false
-        }
+        },
+        icon: __dirname + "/icon.png",
+        frame: true,
     });
 
     // Set a valid user agent
