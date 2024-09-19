@@ -1,0 +1,48 @@
+{
+  "name": "soundcloud-electron",
+  "version": "1.0.0",
+  "description": "An Electron app to use SoundCloud with adblock.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --linux snap",
+    "build": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.lenochjade.soundcloud",
+    "productName": "SoundCloudElectron",
+    "files": [
+      "main.js",
+      "package.json",
+      "preload.js"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+				"snap"
+      ],
+      "icon": "512x512.png"
+    }
+  },
+  "keywords": [
+    "electron",
+    "soundcloud",
+    "adblock"
+  ],
+  "files": [
+		"**/*",
+		"build/*.*"
+	],
+  "author": "Lenoch",
+  "license": "MIT",
+  "dependencies": {
+    "@cliqz/adblocker-electron": "^1.33.2",
+    "electron-context-menu": "^3.6.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "electron-builder": "^25.0.5"
+  }
+}
