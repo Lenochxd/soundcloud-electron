@@ -21,7 +21,7 @@
     "linux": {
       "target": [
         "AppImage",
-				"snap"
+        "snap"
       ],
       "icon": "512x512.png"
     }
@@ -32,9 +32,9 @@
     "adblock"
   ],
   "files": [
-		"**/*",
-		"build/*.*"
-	],
+    "**/*",
+    "build/*.*"
+  ],
   "author": "Lenoch",
   "license": "MIT",
   "dependencies": {
