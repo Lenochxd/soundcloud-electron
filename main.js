@@ -20,7 +20,16 @@ async function createWindow() {
         icon: __dirname + "/icon.png",
         frame: true,
     });
-
+    
+    // Remove cookies on startup if CLI parameter is activated
+    if (process.argv.includes('--clear-cookies')) {
+        session.defaultSession.clearStorageData({ storages: ['cookies'] }).then(() => {
+            console.log('Cookies cleared');
+        }).catch((error) => {
+            console.error('Failed to clear cookies:', error);
+        });
+    }
+    
     // Set a valid user agent
     const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
     mainWindow.webContents.setUserAgent(userAgent);
