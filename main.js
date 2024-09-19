@@ -25,6 +25,11 @@ async function createWindow() {
     const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
     mainWindow.webContents.setUserAgent(userAgent);
 
+    // Allow certain URLs to open new windows
+    mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+        return { action: 'allow' };
+    });
+
     // Load SoundCloud
     mainWindow.loadURL('https://soundcloud.com');
 
