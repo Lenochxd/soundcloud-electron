@@ -31,6 +31,10 @@ async function createWindow() {
         blocker.enableBlockingInSession(session.defaultSession);
     });
 
+    mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription, validatedURL) => {
+        console.log(`Failed to load ${validatedURL}: ${errorDescription} (${errorCode})`);
+    });
+
     mainWindow.on('closed', function () {
         mainWindow = null;
     });
